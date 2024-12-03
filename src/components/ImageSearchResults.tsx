@@ -1,6 +1,5 @@
 import Link from "next/link";
 import PaginationButtons from "./PaginationButtons";
-import Image from "next/image";
 
 // Define types for image search results
 type ImageResultItem = {
