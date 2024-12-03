@@ -28,7 +28,7 @@ export default function ImageSearchResults({
           <div className="mb-8" key={result.link}>
             <div className="group">
               <Link href={result.image.contextLink}>
-                <Image
+                <img
                   src={result.link}
                   alt={result.title}
                   className="h-60 group-hover:shadow-xl w-full object-contain transition-shadow duration-300"
