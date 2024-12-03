@@ -1,5 +1,5 @@
 import WebSearchResults from "@/components/WebSearchResult";
-
+import { Suspense } from "react";
 import Link from "next/link";
 
 export default async function Web({
@@ -17,17 +17,19 @@ export default async function Web({
   const results = data.items;
   if (!results) {
     return (
-      <div className="flex flex-col justify-center items-center pt-10">
-        <h1 className="text-3xl mb-4">
-          No result found for {searchParams.searchTerm}
-        </h1>
-        <p className="text-lg">
-          Try searching the web or images for something else{" "}
-          <Link href="/" className="text-blue-500">
-            Home
-          </Link>
-        </p>
-      </div>
+      <Suspense>
+        <div className="flex flex-col justify-center items-center pt-10">
+          <h1 className="text-3xl mb-4">
+            No result found for {searchParams.searchTerm}
+          </h1>
+          <p className="text-lg">
+            Try searching the web or images for something else{" "}
+            <Link href="/" className="text-blue-500">
+              Home
+            </Link>
+          </p>
+        </div>
+      </Suspense>
     );
   }
   return <div>{results && <WebSearchResults results={data} />}</div>;
