@@ -1,6 +1,5 @@
 "use client";
 
-import { useSearchParams } from "next/navigation";
 import { Suspense } from "react";
 
 export default function SearchParamsWrapper({
@@ -8,7 +7,5 @@ export default function SearchParamsWrapper({
 }: {
   children: React.ReactNode;
 }) {
-  const searchParams = useSearchParams();
-
   return <Suspense fallback={<div>Loading...</div>}>{children}</Suspense>;
 }
