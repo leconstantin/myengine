@@ -1,5 +1,5 @@
 import WebSearchResults from "@/components/WebSearchResult";
-import { Suspense } from "react";
+import SearchParamsWrapper from "@/components/SearchParamsWrapper";
 import Link from "next/link";
 
 export default async function Web({
@@ -17,7 +17,7 @@ export default async function Web({
   const results = data.items;
   if (!results) {
     return (
-      <Suspense>
+      <SearchParamsWrapper>
         <div className="flex flex-col justify-center items-center pt-10">
           <h1 className="text-3xl mb-4">
             No result found for {searchParams.searchTerm}
@@ -29,7 +29,7 @@ export default async function Web({
             </Link>
           </p>
         </div>
-      </Suspense>
+      </SearchParamsWrapper>
     );
   }
   return <div>{results && <WebSearchResults results={data} />}</div>;
