@@ -1,5 +1,5 @@
 "use client";
-import { use, useState } from "react";
+import { FormEvent, useState } from "react";
 import { AiOutlineSearch } from "react-icons/ai";
 import { BsFillMicFill } from "react-icons/bs";
 import { useRouter } from "next/navigation";
@@ -10,14 +10,14 @@ export default function HomeSearch() {
   const router = useRouter();
 
   // Handle form submit
-  const handleSubmit = (e: any) => {
+  const handleSubmit = (e: FormEvent) => {
     e.preventDefault();
     if (!input.trim()) return;
     router.push(`/search/web?searchTerm=${input}`);
   };
 
   // Handle random search submit button
-  const randomSearch = async (e: React.MouseEvent<HTMLButtonElement>) => {
+  const randomSearch = async () => {
     setRandomSearchLoading(true);
     const response = await fetch("https://random-word-api.herokuapp.com/word")
       .then((res) => res.json())

@@ -1,6 +1,6 @@
 "use client";
 import { useRouter, useSearchParams } from "next/navigation";
-import React, { useState } from "react";
+import React, { FormEvent, useState } from "react";
 
 import { AiOutlineSearch } from "react-icons/ai";
 import { BsFillMicFill } from "react-icons/bs";
@@ -11,7 +11,7 @@ export default function SearchBox() {
   const router = useRouter();
   const searchTerm = searchParams.get("searchTerm");
   const [term, setTerm] = useState(searchTerm || "");
-  const handleSubmit = (e: any) => {
+  const handleSubmit = (e: FormEvent) => {
     e.preventDefault();
     if (!term.trim()) return;
     router.push(`/search/web?searchTerm=${term}`);

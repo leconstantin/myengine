@@ -1,5 +1,4 @@
 import ImageSearchResults from "@/components/ImageSearchResults";
-import WebSearchResults from "@/components/WebSearchResult";
 
 import Link from "next/link";
 
