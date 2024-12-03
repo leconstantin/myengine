@@ -7,15 +7,16 @@ import { useRouter } from "next/navigation";
 export default function HomeSearch() {
   const [input, setInput] = useState("");
   const [randomSearchLoading, setRandomSearchLoading] = useState(false);
-
   const router = useRouter();
 
+  // Handle form submit
   const handleSubmit = (e: any) => {
     e.preventDefault();
     if (!input.trim()) return;
     router.push(`/search/web?searchTerm=${input}`);
   };
 
+  // Handle random search submit button
   const randomSearch = async (e: React.MouseEvent<HTMLButtonElement>) => {
     setRandomSearchLoading(true);
     const response = await fetch("https://random-word-api.herokuapp.com/word")
@@ -48,8 +49,9 @@ export default function HomeSearch() {
           Google search
         </button>
         <button
-          className="bg-[#f8f9fa] rounded-md text-sm text-gr hover:ring-gray-200 focus:outline-none active:ring-gray-300 hover:shadow-md w-36 h-10 transition-shadow"
+          className="bg-[#f8f9fa] rounded-md text-sm text-gr hover:ring-gray-200 focus:outline-none active:ring-gray-300 hover:shadow-md w-36 h-10 transition-shadow disabled:shadow-none disabled:opacity-80"
           onClick={randomSearch}
+          disabled={randomSearchLoading}
         >
           {randomSearchLoading ? "Loading..." : "I am feeling lucky"}
         </button>
