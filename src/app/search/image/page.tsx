@@ -1,5 +1,5 @@
 import ImageSearchResults from "@/components/ImageSearchResults";
-import SearchParamsWrapper from "@/components/SearchParamsWrapper";
+
 import Link from "next/link";
 export default async function ImageSearchPage({
   searchParams,
@@ -17,7 +17,7 @@ export default async function ImageSearchPage({
   const results = data.items;
 
   return (
-    <SearchParamsWrapper>
+    <>
       {results ? (
         <ImageSearchResults results={data} />
       ) : (
@@ -33,6 +33,6 @@ export default async function ImageSearchPage({
           </p>
         </div>
       )}
-    </SearchParamsWrapper>
+    </>
   );
 }
