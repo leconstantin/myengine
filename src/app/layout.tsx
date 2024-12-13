@@ -15,7 +15,7 @@ const geistMono = localFont({
 });
 
 export const metadata: Metadata = {
-  title: "Constantin",
+  title: "My Google",
   description:
     "Google clone created by Lecon using tailwind react nextjs and more",
 };
